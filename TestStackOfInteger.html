@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>TestStackOfInteger.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #f8f8f0; background-color: #2e3340; font-family: Consolas}
+pre {color: #f8f8f0; background-color: #2e3340; font-family: Consolas}
+table {color: #90908a; font-family: Consolas}
+.ST1 {color: #148cc3; font-family: Consolas; font-weight: bold}
+.identifier {color: #148cc3}
+.ST3 {color: #148cc3; font-family: Consolas; font-style: italic}
+.number {color: #ae81ff}
+.ST6 {color: #62625f; font-family: Consolas; font-style: italic}
+.ST5 {color: #a6e22e; font-family: Consolas; font-style: italic}
+.ST2 {color: #a6e22e; font-family: Consolas; font-weight: bold; font-style: italic}
+.ST0 {color: #dd2867; font-family: Consolas; font-style: italic}
+.ST4 {color: #a6e22e}
+.ST8 {color: #17c67e; font-family: Consolas; font-weight: bold}
+.string {color: #17c67e}
+.ST7 {color: #a6e22e; font-family: Consolas; font-weight: bold}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\96655\Documents\NetBeansProjects\FinalLabParcticse\src\finallabparcticse\TestStackOfInteger.java</td></tr></table>
+<pre>
+  1 <span class="ST0">package</span> <span class="identifier">finallabparcticse</span>;
+  2 
+  3 <span class="ST0">import</span> <span class="identifier">java</span>.<span class="identifier">util</span>.<span class="identifier">Scanner</span>;
+  4 
+  5 
+  6 <span class="ST0">public</span> <span class="ST0">class</span> <span class="ST1">TestStackOfInteger</span> {
+  7 
+  8     <span class="ST0">public</span> <span class="ST0">static</span> <span class="ST0">void</span> <span class="ST2">main</span>(<span class="identifier">String</span>[] <span class="identifier">args</span>) {
+  9 <span class="identifier">StackOfInteger</span> <span class="identifier">s</span> = <span class="ST0">new</span> <span class="identifier">StackOfInteger</span>(<span class="number">3</span>);
+ 10 <span class="identifier">Scanner</span> <span class="identifier">input</span> = <span class="ST0">new</span> <span class="identifier">Scanner</span>(<span class="identifier">System</span>.<span class="ST3">in</span>);
+ 11 
+ 12 <span class="ST0">while</span> (<span class="ST0">true</span>){
+ 13     <span class="identifier">System</span>.<span class="ST3">out</span>.<span class="ST4">println</span>(<span class="string">&quot;</span><span class="string">Enter command: </span><span class="string">&quot;</span>);
+ 14     <span class="identifier">String</span> <span class="identifier">g</span> = <span class="identifier">input</span>.<span class="ST4">next</span>();
+ 15     <span class="ST0">switch</span>(<span class="identifier">g</span>){
+ 16         <span class="ST0">case</span> <span class="string">&quot;</span><span class="string">push</span><span class="string">&quot;</span>: {
+ 17             <span class="identifier">System</span>.<span class="ST3">out</span>.<span class="ST4">print</span>(<span class="string">&quot;</span><span class="string">Enter integer number: </span><span class="string">&quot;</span>);
+ 18             <span class="ST0">int</span> <span class="identifier">num</span> = <span class="identifier">input</span>.<span class="ST4">nextInt</span>();
+ 19             <span class="identifier">s</span>.<span class="ST4">push</span>(<span class="identifier">num</span>);
+ 20             <span class="ST0">break</span>;
+ 21         }
+ 22         <span class="ST0">case</span> <span class="string">&quot;</span><span class="string">pop</span><span class="string">&quot;</span>:
+ 23         { <span class="identifier">System</span>.<span class="ST3">out</span>.<span class="ST4">println</span>(<span class="identifier">s</span>.<span class="ST4">pop</span>());
+ 24         <span class="identifier">s</span>.<span class="ST4">printStack</span>(); <span class="ST0">break</span>;
+ 25         }
+ 26         <span class="ST0">case</span> <span class="string">&quot;</span><span class="string">peek</span><span class="string">&quot;</span>:
+ 27         { <span class="identifier">System</span>.<span class="ST3">out</span>.<span class="ST4">println</span>(<span class="identifier">s</span>.<span class="ST4">peek</span>());
+ 28         <span class="identifier">s</span>.<span class="ST4">printStack</span>();
+ 29         <span class="ST0">break</span>;
+ 30         }
+ 31         <span class="ST0">case</span> <span class="string">&quot;</span><span class="string">stop</span><span class="string">&quot;</span>:
+ 32             <span class="identifier">System</span>.<span class="ST5">exit</span>(<span class="number">0</span>);
+ 33             <span class="ST0">break</span>;
+ 34         <span class="ST0">default</span>:
+ 35             <span class="identifier">System</span>.<span class="ST3">out</span>.<span class="ST4">println</span>(<span class="string">&quot;</span><span class="string">illegal choice, try again: </span><span class="string">&quot;</span>);
+ 36     }
+ 37 }
+ 38     }
+ 39 }
+ 40 
+ 41 <span class="ST0">class</span> <span class="ST1">StackOfInteger</span> {
+ 42 
+ 43     <span class="ST0">private</span> <span class="ST0">int</span>[] <span class="identifier">elements</span>;
+ 44     <span class="ST0">private</span> <span class="ST0">int</span> <span class="identifier">size</span>;
+ 45     <span class="ST0">public</span> <span class="ST0">static</span> <span class="ST0">final</span> <span class="ST0">int</span> <span class="ST3">DEFAULT_CAPACITY</span> = <span class="number">16</span>;
+ 46 
+ 47     <span class="ST0">public</span> <span class="ST1">StackOfInteger</span>() {
+ 48         <span class="ST0">this</span>(<span class="ST3">DEFAULT_CAPACITY</span>);
+ 49     }
+ 50     <span class="ST6">// specified capacity </span>
+ 51 
+ 52     <span class="ST0">public</span> <span class="ST1">StackOfInteger</span>(<span class="ST0">int</span> <span class="identifier">capacity</span>) {
+ 53         <span class="identifier">elements</span> = <span class="ST0">new</span> <span class="ST0">int</span>[<span class="identifier">capacity</span>];
+ 54     }
+ 55 
+ 56     <span class="ST6">// test if the stack is empty </span>
+ 57     <span class="ST0">public</span> <span class="ST0">boolean</span> <span class="ST7">empty</span>() {
+ 58         <span class="ST0">return</span> <span class="identifier">size</span> == <span class="number">0</span>;
+ 59     }
+ 60 
+ 61     <span class="ST6">/*A method push(integer value) that stores value at the top of the stack. </span>
+ 62 <span class="ST6">This method checks if the stack is full before pushing to it. In case the stack is full, it</span>
+ 63 <span class="ST6">i. copies the contents of the stack to a new temp array</span>
+ 64 <span class="ST6">ii. creates a new elements array with double the current capacity</span>
+ 65 <span class="ST6">iii. copies back temp to elements</span>
+ 66 <span class="ST6">iv. places value at the top of the new stack */</span>
+ 67 
+ 68    <span class="ST0">public</span> <span class="ST0">void</span> <span class="ST7">push</span>(<span class="ST0">int</span> <span class="identifier">value</span>) {
+ 69         <span class="ST0">if</span> (<span class="identifier">size</span> &gt;= <span class="identifier">elements</span>.<span class="identifier">length</span>) {
+ 70             <span class="ST0">int</span>[] <span class="identifier">temp</span> = <span class="ST0">new</span> <span class="ST0">int</span>[<span class="identifier">elements</span>.<span class="identifier">length</span> * <span class="number">2</span>];
+ 71             <span class="identifier">System</span>.<span class="ST5">arraycopy</span>(<span class="identifier">temp</span>, <span class="number">0</span>, <span class="identifier">temp</span>, <span class="number">0</span>, <span class="identifier">elements</span>.<span class="identifier">length</span>);
+ 72             <span class="identifier">elements</span> = <span class="identifier">temp</span>;
+ 73         }
+ 74         <span class="identifier">elements</span>[<span class="identifier">size</span>++] = <span class="identifier">value</span>;
+ 75     }
+ 76 
+ 77     <span class="ST0">public</span> <span class="ST0">int</span> <span class="ST7">pop</span>() {
+ 78         <span class="ST0">if</span> (<span class="ST0">this</span>.<span class="ST4">empty</span>()) {
+ 79             <span class="identifier">System</span>.<span class="ST3">out</span>.<span class="ST4">println</span>(<span class="string">&quot;</span><span class="string">Stack is empty</span><span class="string">&quot;</span>);
+ 80             <span class="ST0">return</span> <span class="number">0</span>;
+ 81 
+ 82         } <span class="ST0">else</span> {
+ 83             <span class="ST0">return</span> <span class="identifier">elements</span>[--<span class="identifier">size</span>];
+ 84         }
+ 85     }
+ 86     
+ 87     <span class="ST0">public</span> <span class="ST0">int</span> <span class="ST7">peek</span>(){
+ 88         <span class="ST0">if</span> (<span class="ST0">this</span>.<span class="ST4">empty</span>()) {
+ 89             <span class="identifier">System</span>.<span class="ST3">out</span>.<span class="ST4">println</span>(<span class="string">&quot;</span><span class="string">Stack is empty</span><span class="string">&quot;</span>);
+ 90             <span class="ST0">return</span> <span class="number">0</span>;
+ 91 
+ 92         } <span class="ST0">else</span> {
+ 93             <span class="ST0">return</span> <span class="identifier">elements</span>[<span class="identifier">size</span> - <span class="number">1</span>];
+ 94         }
+ 95         
+ 96     }
+ 97     
+ 98     <span class="ST0">public</span> <span class="ST0">void</span> <span class="ST7">printStack</span>() {
+ 99         <span class="identifier">System</span>.<span class="ST3">out</span>.<span class="ST4">print</span>(<span class="string">&quot;</span><span class="string">Stack ( top to bottom ): </span><span class="string">&quot;</span>);
+100         <span class="ST0">for</span> (<span class="ST0">int</span> <span class="identifier">i</span> = <span class="identifier">size</span> -<span class="number">1</span>; <span class="identifier">i</span>&gt; -<span class="number">1</span>; <span class="identifier">i</span>--){
+101             <span class="identifier">System</span>.<span class="ST3">out</span>.<span class="ST4">print</span>(<span class="identifier">elements</span>[<span class="identifier">i</span>] + <span class="string">&quot;</span> <span class="ST8">\n</span><span class="string">&quot;</span>);
+102         }
+103     }
+104 
+105     
+106 }
+107 
+</pre></body>
+</html>
